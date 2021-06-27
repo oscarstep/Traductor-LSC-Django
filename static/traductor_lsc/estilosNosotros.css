@@ -1,0 +1,126 @@
+.Content{
+	position: relative;
+	bottom: 0;
+	margin-left: 40px;
+	width: 95%;
+}
+
+.titulo1{
+	font-family: Bahnschrift;
+	font-size: 60px;
+	margin-top: 50px;
+	margin-left: 20px;
+	margin-bottom: 0;
+	color: black;
+}
+
+.titulo2{
+	font-family: Bahnschrift;
+	font-size: 60px;
+	margin-top: 150px;
+	margin-left: 20px;
+	margin-bottom: 0;
+	color: black;
+}
+
+
+.linea1{
+	width: 100%;
+	left: 0px;
+}
+
+.nombre1{
+	font-family: Bahnschrift;
+	font-size: 25px;
+	width: 50px;
+	margin-top: 150px;
+	margin-left: 40px;
+	color: black;
+}
+
+
+.div-lef{
+	float: left;
+	margin-left: 0px;
+}
+
+.div-center{
+	float: left;
+	margin-left: 80px;
+}
+
+.div-right{
+	float: left;
+	margin-left: 80px;
+}
+
+.div-mon{
+	float: left;
+	margin-left: 50px;
+}
+
+.img-size{
+	width: 240px;
+	height: 240px;
+}
+
+.img-size1-1{
+	width: 240px;
+	height: 240px;
+	display: block;
+	margin: auto;	
+}
+
+.img-size2{
+	width: 400px;
+	height: 300px;
+}
+
+.linea2{
+	width: 80%;
+	left: 0px;
+}
+
+.p-datos{
+	font-family: Bahnschrift;
+	font-size: 18px;
+	margin-left: 20px;
+	color: black;
+	line-height: 30px;
+}
+
+.p-datos2{
+	font-family: Bahnschrift;
+	font-size: 20px;
+	color: black;
+	margin-left: 150px;
+}
+
+.p-datos3{
+	font-family: Bahnschrift;
+	font-size: 20px;
+	color: white;
+	line-height: 20px;
+	margin-top: 45px;
+	margin-left: 30px;
+	float: left;	
+}
+
+.p-datos4{
+	font-family: Bahnschrift;
+	font-size: 20px;
+	color: white;
+	line-height: 20px;
+	margin-top: 70px;
+	margin-left: 15px;
+	float: left;
+}
+
+.flexbox_container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	height: 400px;
+	align-items: center;
+}

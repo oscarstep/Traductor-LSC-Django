@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nosotros</title>
+	{% include "Navbar.html" with estado2='active' %}
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'traductor_lsc/estilosNosotros.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'traductor_lsc/estilosHome.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+		<h1 class="titulo text-dark">Traductor LSC</h1>
+		<h2 class="subtitulo text-dark">Sitio Web diseñado para traducir el abecedario del <br>
+		Lenguaje de Señas Colombiano (LSC) a texto</h2>
+	
+
+	<section class="Content">
+		
+		<h1 class="titulo1">TEAM</h1>
+		<hr width= 95% align="left">
+		
+		<div class="flexbox_container">
+			{% for inte in int %}
+				<div >
+				
+					<h2 class="nombre1">{{inte.nombre}}</h2>
+					<hr class="linea2">
+					<img src="{% get_static_prefix %}{{inte.urlImg}}" class="img-size">
+					<p class="p-datos">
+						{{inte.cargo}} <br>
+						{{inte.correo}} <br>
+						{{inte.telefono}}
+					</p>
+				
+				</div>
+			{% endfor %}	
+		</div>
+		<h1 class="titulo2">Acerca de</h1>
+		<hr width= 95% align="left">
+		<div class="flexbox_container">
+			<div>
+				<img src="{% static 'traductor_lsc/imagenes/imagen_señas.png' %}" class="img-size2">
+			</div>
+			<div>
+				<p class="p-datos2">
+					{{dic}}{{Nosotros}}
+				</p>
+			</div>	
+			
+		</div>
+	</section>
+</body>
+<!--Footer-->
+{% include "Footer.html" %}
+<!--/Footer-->
+</html>

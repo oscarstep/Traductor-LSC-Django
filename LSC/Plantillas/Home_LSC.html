@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Traductor LSC</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'traductor_lsc/estilosHome.css' %}"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+	<section class="header-background">
+		{% include "Navbar.html" with estado1='active' %}
+		<div>
+			<img src="{% static 'traductor_lsc/imagenes/aunar_logo.png' %}" class="logo-header">
+			<h1 class="titulo">Traductor LSC</h1>
+			<h2 class="subtitulo">Sitio Web diseñado para traducir el abecedario del <br>
+			Lenguaje de Señas Colombiano (LSC) a texto</h2>
+		</div>
+	</section>
+	<div class="grid-container">
+		<div class="itemFlecha">
+			<img src="{% static 'traductor_lsc/imagenes/Flecha.png' %}" class="img-flecha" id="indicador_flecha">
+			<p class="text-camara" id="indicador_texto">Activa la <br> cámara</p>
+		</div>
+		<div class="itemBoton-empezar">
+			<button class="img-start" id="start" onclick="chromakey()"></button>
+			<!--<img src="{% static 'traductor_lsc/imagenes/Boton.png' %}" class="boton-empezar" type="button" onclick="">-->
+			<p class="text-normal">Empezar</p>
+		</div>
+		<div class="video-container" class="itemVideo">
+			<video autoplay class="video-element" id="video"></video>
+			<canvas id="canvas" hidden></canvas>
+		</div>
+		<div class="itemEspacio">
+			<p class="text-normal" style="font-size: 25px;"><b>Señas especiales:</b></p>
+			<button class="img-espacio" style="margin-left: 60px;" onclick=""></button>
+			<p class="text-normal" style="margin-bottom: 0;">Espacio</p>
+			<p class="text-normal" style="font-size: 15px;">(Da un espacio en la traducción)</p>
+		</div>
+		<div class="itemParar">
+			<button class="img-stop" style="margin-left: 25px;" id="stop" onclick="stop()"></button>
+			<p class="text-normal" style="margin-bottom: 0;">Parar</p>
+			<p class="text-normal" style="font-size: 15px;">(Detiene la traducción)</p>
+		</div>
+	</div>
+	<canvas id="canvas" width="0" height="0"></canvas>
+	<script type="text/javascript">
+		var video = document.querySelector(".video-element");
+		var stop_button = false;
+		const canvas = document.querySelector('#canvas');
+		const ctx = canvas.getContext('2d');
+
+		if (navigator.mediaDevices.getUserMedia) {
+			
+		  	navigator.mediaDevices.getUserMedia({ video: true })
+				.then(function (stream) {
+					document.getElementById("indicador_flecha").style.display = "none";
+					document.getElementById("indicador_texto").style.display = "none";
+					video.srcObject = stream;
+			})
+
+			.catch(function (err0r) {
+		      console.log("Something went wrong!");
+			});
+			
+			//es un evento en donde carga la infomación del video
+			video.addEventListener('loadeddata', ()=>{
+				canvas.width = video.videoWidth;
+				canvas.height = video.videoHeight;
+				//chromakey()
+			})
+
+			
+			//la función chromakey pinta la información de mi video
+			function chromakey(){
+				if (this.stop_button === false){
+					setTimeout(function(){
+						//para dibujar la imagen en el canvas
+						ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+						var image = canvas.toDataURL();
+						//devuelve un array de toda la información en rgba
+						//const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+						canvas.setAttribute('src', image);
+						//document.getElementById("lsc_text").value=image;
+						$.ajax({
+							type: "POST",
+							url: '/prueba/',
+							headers: {'X-CSRFToken': '{{ csrf_token }}'},
+							data: {
+								'data_url': JSON.stringify(image)
+							},
+							/*success: function() {
+								console.log("Elemento Enviado");
+								//chromakey();
+							}*/
+						}).done(function(prediction){
+							if (prediction.result){
+								document.getElementById("lsc_text").value+=prediction.letra;
+								alert("Siguiente letra");
+								chromakey();
+							}
+						});
+					//sirve para desaparecer el canvas
+					//ctx.clearRect(0, 0, canvas.width, canvas.height)
+					},1000);
+				}
+			}
+		}
+
+		function stop(e) {
+			this.stop_button = true;
+			document.getElementById("indicador_flecha").style.display = "block";
+			document.getElementById("indicador_texto").style.display = "block";	
+		  	var stream = video.srcObject;
+		  	var tracks = stream.getTracks();
+
+			for (var i = 0; i < tracks.length; i++) {
+				var track = tracks[i];
+				track.stop();
+			}
+
+			video.srcObject = null;
+		}
+		function init() {
+			document.getElementById("lsc_text").value = "";
+		}
+		window.onload = init;
+	</script>
+	<div class="text-container">
+		<input type="text" class="text-area" id="lsc_text" value="" readonly>
+	</div>
+	<!-- Footer -->
+	{% include "Footer.html" %}
+	<!-- Footer -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</body>
+</html>

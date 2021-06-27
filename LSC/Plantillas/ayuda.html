@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    {% load static %}
+    {% include "Navbar.html" with estado3='active' %}
+    <!--Navbar-->
+    
+    
+    
+    <!-- Required meta tags -->
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/CSS/Main.css' %}">
+    
+    <script src="{% static '/JS/Main.js' %}"></script>   
+    <title>Ayuda</title>
+  </head>
+  <body>
+    <!-- Title-->
+    <!-- Description-->
+    <!--Imagenes-->
+    
+    <div class="containter " >
+        <div class="row ">
+            <div class="col-7 mt-4 pb-4" >
+              <div class=" text-left col-12 " style="width: 570px; padding-left: 30px;" > 
+                <p class="text-justify">
+                  
+                {{dic}}{{Descripcion1}}
+                  
+                </p>
+              </div>
+              
+              <div class="container " id="imagenes" style="padding-left: 30px;">
+                <div class="row mb-1">
+                  <div class="col-12 ">
+                    <img src="{% static 'img/A1.png' %}"  class="imagenes2" type="button" onclick="cargarImagen('letraa')" onmouseover="cargarImagen('letraa')">
+                    <img src="{% static 'img/B (1).png' %}" class="imagenes2"  type="button" onclick="cargarImagen('letrab')" onmouseover="cargarImagen('letrab')">
+                    <img src="{% static 'img/C (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrac')" onmouseover="cargarImagen('letrac')">
+                    <img src="{% static 'img/D (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrad')" onmouseover="cargarImagen('letrad')">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-12">
+                    <img src="{% static 'img/E (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrae')" onmouseover="cargarImagen('letrae')">
+                    <img src="{% static 'img/F (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letraf')" onmouseover="cargarImagen('letraf')">
+                    <img src="{% static 'img/G (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrag')" onmouseover="cargarImagen('letrag')">
+                    <img src="{% static 'img/H (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrah')" onmouseover="cargarImagen('letrah')">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-12">
+                    <img src="{% static 'img/I (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrai')" onmouseover="cargarImagen('letrai')">
+                    <img src="{% static 'img/J (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letraj')" onmouseover="cargarImagen('letraj')">
+                    <img src="{% static 'img/K (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrak')" onmouseover="cargarImagen('letrak')">
+                    <img src="{% static 'img/L (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letral')" onmouseover="cargarImagen('letral')">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-12">
+                    <img src="{% static 'img/M (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letram')" onmouseover="cargarImagen('letram')">
+                    <img src="{% static 'img/N (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letran')" onmouseover="cargarImagen('letran')">
+                    <img src="{% static 'img/NE (1).png' %}"class="imagenes2"  type="button" onclick="cargarImagen('letrane')" onmouseover="cargarImagen('letrane')">
+                    <img src="{% static 'img/O (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrao')" onmouseover="cargarImagen('letrao')">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-12">
+                    <img src="{% static 'img/P (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrap')" onmouseover="cargarImagen('letrap')">
+                    <img src="{% static 'img/Q (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letraq')" onmouseover="cargarImagen('letraq')">
+                    <img src="{% static 'img/R (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrar')" onmouseover="cargarImagen('letrar')">
+                    <img src="{% static 'img/S (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letras')" onmouseover="cargarImagen('letrass')">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-12">
+                    <img src="{% static 'img/T (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrat')" onmouseover="cargarImagen('letrat')">
+                    <img src="{% static 'img/U (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrau')" onmouseover="cargarImagen('letrau')">
+                    <img src="{% static 'img/V (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrav')" onmouseover="cargarImagen('letrav')">
+                    <img src="{% static 'img/W (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letraw')" onmouseover="cargarImagen('letraw')">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-12">
+                    <img src="{% static 'img/X (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letrax')" onmouseover="cargarImagen('letrax')">
+                    <img src="{% static 'img/y (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letray')" onmouseover="cargarImagen('letray')">
+                    <img src="{% static 'img/Z (1).png' %}" class="imagenes2" type="button" onclick="cargarImagen('letraz')" onmouseover="cargarImagen('letraz')">
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>  
+              <div class=" col-5  pt-4" >
+                <div class="row ">
+                  <div class="col-12 " style="width: 300px;">
+                    <div id="Imagen2 "  class="mx-auto "  >
+                      <img id="imagen"  src="{% static 'img/cuadro.png' %}" style="padding-top: 220px;">
+                    </div>
+                      <p class="text-justify " style="width: 290px;"> 
+                        {{dic}}{{Descripcion2}}
+                      </p>
+                  </div>
+                </div>
+                
+              </div>
+        </div>
+    </div>
+    
+
+
+    
+      <!-- Footer -->
+        {% include "Footer.html" %}
+      <!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+env/
+__pycache__/
+.vscode/
+LSC/__pycache__/
+panelControl/__pycache__/
+panelControl/migrations/__pycache__/
