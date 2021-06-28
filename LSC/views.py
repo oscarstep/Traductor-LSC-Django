@@ -45,8 +45,9 @@ def prueba(request):
         #pred_lsc = prediction(data)
         #print(pred_lsc)
         prediction = json.loads(response.content)
+        prediction['letra'] = prediction['letra']['name']
+        print(prediction)
         prediction.update({"result":True})
-        print(prediction["letra"])
     return JsonResponse(prediction)
 
 def nosotros(request):
