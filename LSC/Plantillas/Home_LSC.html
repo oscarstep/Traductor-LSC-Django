@@ -94,9 +94,17 @@
 							}*/
 						}).done(function(prediction){
 							if (prediction.result){
-								document.getElementById("lsc_text").value+=prediction.letra;
-								alert("Siguiente letra");
-								chromakey();
+								if (prediction.letra==="espacio") {
+									document.getElementById("lsc_text").value+=" ";
+									alert("Siguiente letra");
+									chromakey();
+								} else if (prediction.letra==="parar") {
+									stop();
+								} else {
+									document.getElementById("lsc_text").value+=prediction.letra;
+									alert("Siguiente letra");
+									chromakey();
+								}
 							}
 						});
 					//sirve para desaparecer el canvas

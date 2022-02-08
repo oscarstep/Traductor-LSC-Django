@@ -1,7 +1,13 @@
-pip install django
+python -m pip install django
 
-pip install psycopg2
+python -m pip install psycopg2
 
-pip install python-memcached
+python -m pip install python-memcached
 
-pip install requests
+python -m pip install requests
+
+------------ CORRER SERVIDOR LOCAL ---------------
+
+"env/Scripts/activate.bat"
+
+python manage.py runserver
